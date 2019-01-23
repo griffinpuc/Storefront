@@ -6,15 +6,29 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <h1 style="text-align: center;"><span class="label label-default">Online Shop - Home Page</span></h1>
-    @foreach (var item in Model)
-    {
-    <h3><span class="label label-primary">@item.Name</span></h3>
-    <h4>@item.Desc</h4>
-    <p>Item ID: @item.ID</p>
-    <h5>Item Price: $@item.Price</h5>
-    <p>Stock: x @item.Quantity</p>
-    }
+    <h1 style="text-align: center;"><span class="label label-default">Storefront Inventory</span></h1>
+    <br />
+        <table style="width: 100%; font-size: 15pt; border-spacing: 10vh;">
+            <tr class="jumbotron">
+                <th>ID</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Code</th>
+                    <th class="label label-primary">@item.Name</th>
+                    <th>@item.Desc</th>
+                    <th>$@item.Price</th>
+                    <th>@item.Quantity Units</th>
+                    <th>@item.Category</th>
+                </tr>
+            }
+        </table>
 </body>
 
 </html>
