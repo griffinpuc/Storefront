@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Item>
+
+@{
+    List<string> categories = new List<string>() { "All Catgories" };
+    foreach (var item in Model)
+    {
+        categories.Add(item.Category);
+    }
+    var unique_items = new HashSet<string>(categories);
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Storefront</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="customstyles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Quicksand" rel="stylesheet">
+</head>
+
+<body style="font-family: Assistant;">
+    <h1 style="text-align: center;"><span class="label label-default">Storefront Inventory</span></h1>
+    <br />
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Order by Category
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="category_drop">
+                @foreach (string cat in unique_items)
+                {
+                    <li><a href="#">@cat</a></li>
+
+                }
+            </ul>
+        </div>
+    <br />
+    <table style="width: 100%; font-size: 12pt; border-spacing: 10vh;">
+        <tr class="jumbotron">
+            <th>ID</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Wholesale Price</th>
+            <th>Retail Price</th>
+            <th>Markup</th>
+            <th>Quantity</th>
+            <th>Category</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>#@item.Code</th>
+                <th class="label label-info">@item.Name</th>
+                <th style="color: #848484">@item.Desc</th>
+                <th>$@item.WPrice</th>
+                <th>$@item.Price</th>
+                <th>@decimal.Round((decimal)(item.WPrice / item.Price)*100, 2, MidpointRounding.AwayFromZero) %</th>
+                <th style="color: #848484">@item.Quantity Units</th>
+                <th>@item.Category</th>
+            </tr>
+        }
+    </table>
+</body>
+
+</html>
