@@ -14,5 +14,14 @@ namespace Main.Controllers
         {
             return View();
         }
+
+        IItemRepo repository;
+
+        public HomeController(IItemRepo repo)
+        {
+            repository = repo;
+        }
+
+        public ViewResult Shop() => View(repository.Items);
     }
 }
