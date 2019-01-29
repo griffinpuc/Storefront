@@ -23,5 +23,15 @@ namespace Main.Controllers
         }
 
         public ViewResult Shop() => View(repository.Items);
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
     }
 }

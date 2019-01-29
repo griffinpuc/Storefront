@@ -13,7 +13,6 @@
 
 <head>
     <title>Storefront</title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="customstyles.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Assistant|Quicksand" rel="stylesheet">
 </head>
@@ -45,18 +44,20 @@
             <th>Markup</th>
             <th>Quantity</th>
             <th>Category</th>
+            <th>Edit</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <th>#@item.Code</th>
-                <th class="label label-info">@item.Name</th>
-                <th style="color: #848484">@item.Desc</th>
+                <th class="label label-info">#@item.Code</th>
+                <th>@item.Name</th>
+                <th style="color: gray">@item.Desc</th>
                 <th>$@item.WPrice</th>
-                <th>$@item.Price</th>
+                <th>$@item.Price</th>   
                 <th>@decimal.Round((decimal)(item.WPrice / item.Price)*100, 2, MidpointRounding.AwayFromZero) %</th>
-                <th style="color: #848484">@item.Quantity Units</th>
+                <th class="label label-success">@item.Quantity Units</th>
                 <th>@item.Category</th>
+                <th><a asp-controller="home" asp-action="edit" asp-route-id="@item.Code">Edit</a></th>
             </tr>
         }
     </table>
