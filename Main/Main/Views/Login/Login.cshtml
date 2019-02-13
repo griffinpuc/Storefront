@@ -1,0 +1,32 @@
+﻿@model LogInfo
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <br />
+    <div class="form-group">
+        <form asp-controller="Login" asp-action="login">
+            <div class="col-xs-7">
+                <label asp-for="uname" for="uname"><b>Username:</b></label>
+                <input type="text" class="form-control" placeholder="Enter Username" id="uname" name="uname" required>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="col-xs-7">
+                <label asp-for="pass" for="pass"><b>Password:</b></label>
+                <input type="password" class="form-control" placeholder="Enter Password" id="pass" name="pass" required>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="col-xs-7">
+                <button type="submit" class="btn-primary">Login</button>
+            </div>
+
+        </form>
+    </div>  
+
+</body>
+</html>

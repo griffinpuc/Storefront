@@ -1,8 +1,39 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@model Item
+
+@if(Model == null)
+    {
+
+    }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Edit Page</title>
 </head>
 <body>
-    <h1>EDIT</h1>
+    <h1 style="text-align: center;"><span class="label label-default">Edit '@Model.Name'</span></h1>
+    <br />
+
+    <table style="width: 100%; font-size: 12pt; border-spacing: 15vh; border-collapse: separate; border-spacing: 5px;">
+        <tr>
+            <th>ID</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Wholesale Price</th>
+            <th>Retail Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+        </tr>
+        <tr>
+            <th><span class="label label-info" style="font-size: 12pt;">#@Model.Code</span></th>
+            <th><input type='text' name='name' size='15' value=@Model.Name /></th>
+            <th><input type='text' name='desc' size='15' value=@Model.Desc /></th>
+            <th><input type='text' name='w_price' size='15' value=@Model.WPrice /></th>
+            <th><input type='text' name='r_price' size='15' value=@Model.Price /></th>
+            <th><input type='text' name='quantity' size='15' value=@Model.Quantity /></th>
+            <th><input type='text' name='category' size='15' value=@Model.Category /></th>
+        </tr>
+    </table>
+
+
 </body>
 </html>

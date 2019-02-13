@@ -22,16 +22,33 @@ namespace Main.Controllers
             repository = repo;
         }
 
-        public ViewResult Shop() => View(repository.Items);
+        public ViewResult Admin() => View(repository.Items);
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        public IActionResult Edit()
+        [HttpPost]
+        public IActionResult Login(string uname, string pass)
         {
-            return View();
+            if(Validation.Validate(uname, pass))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            Item edit_item = repository.GetItems(id.Value);
+
+            return View(edit_item);
         }
     }
 }

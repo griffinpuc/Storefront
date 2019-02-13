@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Main.Models
@@ -7,6 +8,8 @@ namespace Main.Models
     {
         IQueryable<Item> Items { get; }
 
+        Item GetItems(int id);
     }
+
 }
 
