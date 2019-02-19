@@ -10,6 +10,7 @@ namespace Main.Models
     public class Validation
     {
 
+        //Move to SQL
         static string username = ComputeHash("admin");
         static string password = ComputeHash("password");
 
@@ -30,7 +31,8 @@ namespace Main.Models
 
         public static Boolean Validate(string uname, string pass)
         {
-            if((ComputeHash(uname) == username) && (ComputeHash(pass) == password)){
+            if((ComputeHash(uname) == username) && (ComputeHash(pass) == password))
+            {
                 return true;
             }
 
