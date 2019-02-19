@@ -24,25 +24,6 @@ namespace Main.Controllers
 
         public ViewResult Admin() => View(repository.Items);
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Login(string uname, string pass)
-        {
-            if(Validation.Validate(uname, pass))
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-
-            else
-            {
-                return RedirectToAction("Index", "Login");
-            }
-        }
 
         public IActionResult Edit(int? id)
         {
