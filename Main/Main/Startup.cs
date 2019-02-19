@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Main.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Main
 {
@@ -33,6 +34,7 @@ namespace Main
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddTransient<IItemRepo, TestItemRepo>();
 
         }
