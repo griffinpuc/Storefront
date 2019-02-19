@@ -22,6 +22,14 @@ namespace Main.Controllers
             repository = repo;
         }
 
-        public ViewResult Shop() => View(repository.Items);
+        public ViewResult Admin() => View(repository.Items);
+
+
+        public IActionResult Edit(int? id)
+        {
+            Item edit_item = repository.GetItems(id.Value);
+
+            return View(edit_item);
+        }
     }
 }

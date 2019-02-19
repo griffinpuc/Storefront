@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Item>
+
+@{
+    List<string> categories = new List<string>() { "All Catgories" };
+    foreach (var item in Model)
+    {
+        categories.Add(item.Category);
+    }
+    var unique_items = new HashSet<string>(categories);
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Storefront</title>
+    <link href="customstyles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body style="font-family: Assistant;">
+
+    <h1 style="text-align: center; font-size: 45pt;">Admin Panel</h1>
+
+    <br />
+
+    <div class="row">
+        <div class="col-sm-6" style="text-align: center;">
+            <div class="jumbotron">
+                <i class="fas fa-user-alt" style="font-size: 45pt;"></i>
+                <p style="font-size: 25pt">Account Actions</p>
+                <p style="font-size: 13pt">Edit settings relating to user accounts, passwords, and permissions.</p>
+                <button class="btn btn-primary" type="button">Change Username</button>
+                <button class="btn btn-primary" type="button">Change Password</button>
+            </div>
+        </div>
+        <div class="col-sm-6" style="text-align: center;">
+            <div class="jumbotron">
+                <i class="fas fa-file-upload" style="font-size: 45pt;"></i>
+                <p style="font-size: 25pt">Inventory Actions</p>
+                <p style="font-size: 13pt">Import and export data files to easily switch and edit inventories.</p>
+                <button class="btn btn-primary" type="button">Export Data</button>
+                <button class="btn btn-primary" type="button">Import Data</button>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="jumbotron">
+
+        <div class="dropdown">
+
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Order by Category
+                <span class="caret"></span>
+            </button>
+            <button class="btn btn-primary" type="button">Add Item</button>
+
+
+            <ul class="dropdown-menu" id="category_drop">
+                @foreach (string cat in unique_items)
+                {
+                    <li><a href="#">@cat</a></li>
+
+                }
+            </ul>
+
+        </div>
+
+        <br />
+
+        <table style="width: 100%; font-size: 12pt; border-spacing: 10vh;">
+            <tr class="jumbotron">
+                <th>ID</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Wholesale Price</th>
+                <th>Retail Price</th>
+                <th>Markup</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th class="label label-info">#@item.Code</th>
+                    <th>@item.Name</th>
+                    <th style="color: gray">@item.Desc</th>
+                    <th>$@item.WPrice</th>
+                    <th>$@item.Price</th>
+                    <th>@decimal.Round((decimal)(item.WPrice / item.Price) * 100, 2, MidpointRounding.AwayFromZero) %</th>
+                    <th class="label label-success">@item.Quantity Units</th>
+                    <th>@item.Category</th>
+                    <th><a asp-controller="home" asp-action="edit" asp-route-id="@item.Code">Edit</a></th>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</body>
+
+</html>
