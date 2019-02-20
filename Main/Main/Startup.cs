@@ -35,7 +35,8 @@ namespace Main
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
-            services.AddTransient<IItemRepo, TestItemRepo>();
+            services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ItemConnectionString")));
+            services.AddTransient<IItemRepo, ItemActions>();
 
         }
 

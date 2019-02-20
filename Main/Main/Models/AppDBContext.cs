@@ -14,6 +14,8 @@ namespace Main.Models
         {
         }
 
+        public DbSet<Item> DBItems { get; set; }
+
         public DbSet<LogInfo> DBCreds { get; set; }
 
     }

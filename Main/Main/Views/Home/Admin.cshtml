@@ -32,6 +32,8 @@
                 <p style="font-size: 13pt">Edit settings relating to user accounts, passwords, and permissions.</p>
                 <button class="btn btn-primary" type="button">Change Username</button>
                 <button class="btn btn-primary" type="button">Change Password</button>
+                <button class="btn btn-primary" type="button">Manage Users</button>
+
             </div>
         </div>
         <div class="col-sm-6" style="text-align: center;">
@@ -55,7 +57,6 @@
                 Order by Category
                 <span class="caret"></span>
             </button>
-            <button class="btn btn-primary" type="button">Add Item</button>
 
 
             <ul class="dropdown-menu" id="category_drop">
@@ -71,33 +72,80 @@
         <br />
 
         <table style="width: 100%; font-size: 12pt; border-spacing: 10vh;">
-            <tr class="jumbotron">
+            <tr class="jumbotron" style="font-size: 15pt;">
                 <th>ID</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Item</th>
                 <th>Description</th>
                 <th>Wholesale Price</th>
                 <th>Retail Price</th>
-                <th>Markup</th>
                 <th>Quantity</th>
                 <th>Category</th>
-                <th>Action</th>
+            </tr>
+            <tr>
+                <th><br /></th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <th class="label label-info">#@item.Code</th>
-                    <th>@item.Name</th>
-                    <th style="color: gray">@item.Desc</th>
-                    <th>$@item.WPrice</th>
-                    <th>$@item.Price</th>
-                    <th>@decimal.Round((decimal)(item.WPrice / item.Price) * 100, 2, MidpointRounding.AwayFromZero) %</th>
-                    <th class="label label-success">@item.Quantity Units</th>
-                    <th>@item.Category</th>
-                    <th><a asp-controller="home" asp-action="edit" asp-route-id="@item.Code">Edit</a></th>
-                </tr>
+            <tr>
+                <th style="color: cornflowerblue; font-size: 15pt;" name="code">#@item.Code</th>
+                <th></th>
+                <th>@item.Name</th>
+                <th style="color: gray">@item.Desc</th>
+                <th>$@item.WPrice</th>
+                <th>$@item.Price</th>
+                <th style="color: cornflowerblue">@item.Quantity Units</th>
+                <th>@item.Category</th>
+                <th><a asp-controller="home" asp-action="edit" asp-route-id="@item.Code">Edit</a></th>
+                <th>
+                    <form asp-controller="home" asp-action="delete" asp-route-id="@item.Code">
+                        <p name="code" hidden>@item.Code</p>
+                        <button class="btn btn-danger" style="margin: 5px;" type="submit">Delete</button>
+                    </form>
+                </th>
+            </tr>
             }
+
         </table>
+
+        <form asp-controller="home" asp-action="admin">
+            <table style="width: 100%; font-size: 12pt; border-spacing: 10vh; margin-top: 5vh;">
+                <tr class="jumbotron">
+                    <th>
+                        <input type="text" class="form-control" placeholder="Code" id="code" name="code" required>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Desc" id="desc" name="desc" required>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="WPrice" id="wprice" name="wprice" required>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Price" id="price" name="price" required>
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity" required>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Category" id="category" name="category" required>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+            <br />
+
+            <div style="text-align: center;">
+                <button class="btn btn-primary btn-block" type="submit" name="add" id="add">Add Item</button>
+            </div>
+        </form>
+
 
     </div>
 

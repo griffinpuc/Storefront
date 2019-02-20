@@ -11,5 +11,6 @@ namespace Main.Models
         public int ID { get; set; }
         public string uname { get; set; }
         public string pass { get; set; }
+        public bool permission { get; set; }
     }
 }

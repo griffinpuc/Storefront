@@ -26,20 +26,24 @@ namespace Main.Models
             }
         }
 
-        public static Boolean Validate(string uname, string pass)
+        public static List<bool> Validate(string uname, string pass)
         {
 
             List<LogInfo> CredList = Get();
+
+            List<bool> Return;
 
             foreach (LogInfo i in CredList)
             {
                 if ((ComputeHash(uname) == i.uname) && (ComputeHash(pass) == i.pass))
                 {
-                    return true;
+                    Return = new List<bool>() {true, i.permission};
+                    return Return;
                 }
             }
 
-            return false;
+            Return = new List<bool>() { false, false };
+            return Return;
         }
 
         public static List<LogInfo> Get()
@@ -47,22 +51,20 @@ namespace Main.Models
 
             List<LogInfo> CredList = new List<LogInfo>();
             using (SqlConnection connection = new SqlConnection("server=(localdb)\\mssqllocaldb;Database=DBCreds;Trusted_Connection=True;MultipleActiveResultSets=true"))
-            using (SqlCommand cmd = new SqlCommand("SELECT ID AS ID, uname, pass FROM DBCreds", connection))
+            using (SqlCommand cmd = new SqlCommand("SELECT ID AS ID, uname, pass, permission FROM DBCreds", connection))
             {
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    // Check is the reader has any rows at all before starting to read.
                     if (reader.HasRows)
                     {
-                        // Read advances to the next row.
                         while (reader.Read())
                         {
                             LogInfo i = new LogInfo();
-                            // To avoid unexpected bugs access columns by name.
                             i.ID = reader.GetInt32(reader.GetOrdinal("ID"));
                             i.uname = reader.GetString(reader.GetOrdinal("uname"));
                             i.pass = reader.GetString(reader.GetOrdinal("pass"));
+                            i.permission = reader.GetBoolean(reader.GetOrdinal("permission"));
                             CredList.Add(i);
                         }
                     }
