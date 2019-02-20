@@ -19,7 +19,7 @@ namespace Main.Controllers
         public IActionResult Login(string uname, string pass)
         {
 
-            List<bool> Temp = Validation.Validate(uname, pass);
+            List<bool> Temp = AccountActions.Validate(uname, pass);
             if (Temp[0] && !Temp[1])
             {
                 return RedirectToAction("Mod", "Home");

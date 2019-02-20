@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Main.Models
 {
-    public class Validation
+    public class AccountActions
     {
 
         public static string ComputeHash(string rawData)

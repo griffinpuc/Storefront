@@ -18,15 +18,15 @@ namespace Main.Models
 
                     new LogInfo
                     {
-                        uname = Validation.ComputeHash("admin"),
-                        pass = Validation.ComputeHash("password"),
+                        uname = AccountActions.ComputeHash("admin"),
+                        pass = AccountActions.ComputeHash("password"),
                         permission = true
                     },
 
                     new LogInfo
                     {
-                        uname = Validation.ComputeHash("griffin"),
-                        pass = Validation.ComputeHash("griffpass"),
+                        uname = AccountActions.ComputeHash("griffin"),
+                        pass = AccountActions.ComputeHash("griffpass"),
                         permission = false
                     }
                     );

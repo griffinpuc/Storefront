@@ -23,7 +23,14 @@ namespace Main.Controllers
         }
 
         [HttpGet]
-        public ViewResult Admin() => View(repository.Items);
+        public ViewResult Admin()
+        {
+            return View(repository.Items);
+            //List<LogInfo> Loginfo = AccountActions.Get();
+
+            //List<object> Data = new List<object>() {repository.Items, Loginfo};
+            //return View(Data);
+        }
 
         [HttpPost]
         public IActionResult Admin(string code, string name, string desc, string wprice, string price, string quantity, string category)

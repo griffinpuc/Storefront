@@ -97,11 +97,14 @@
                 <th>$@item.Price</th>
                 <th style="color: cornflowerblue">@item.Quantity Units</th>
                 <th>@item.Category</th>
-                <th><a asp-controller="home" asp-action="edit" asp-route-id="@item.Code">Edit</a></th>
+                <th>
+                    <form asp-controller="home" asp-action="edit" asp-route-id="@item.Code">
+                        <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
+                    </form>
+                </th>
                 <th>
                     <form asp-controller="home" asp-action="delete" asp-route-id="@item.Code">
-                        <p name="code" hidden>@item.Code</p>
-                        <button class="btn btn-danger" style="margin: 5px;" type="submit">Delete</button>
+                        <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
                     </form>
                 </th>
             </tr>
