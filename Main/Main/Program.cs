@@ -27,7 +27,7 @@ namespace Main
 
                 var DBContext = services.GetRequiredService<AppDBContext>();
                 SeedDB.PopulateDB(DBContext);
-                SeedDB.PopulateDB2(DBContext);
+                //SeedDB.PopulateDB2(DBContext);
             }
 
             host.Run();

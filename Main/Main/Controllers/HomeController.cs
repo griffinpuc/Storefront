@@ -35,10 +35,15 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult Admin(string code, string name, string desc, string wprice, string price, string quantity, string category)
         {
+            int x = 1;
+            foreach(Item i in repository.Items)
+            {
+                x++;
+            }
 
             Item item = new Item
             {
-                Code = int.Parse(code),
+                Code = x,
                 Name = name,
                 Desc = desc,
                 WPrice = Convert.ToDouble(wprice),
