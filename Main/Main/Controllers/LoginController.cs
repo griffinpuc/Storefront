@@ -18,7 +18,14 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult Login(string uname, string pass)
         {
-            if (Validation.Validate(uname, pass))
+
+            List<bool> Temp = AccountActions.Validate(uname, pass);
+            if (Temp[0] && !Temp[1])
+            {
+                return RedirectToAction("Mod", "Home");
+            }
+
+            else if (Temp[0] && Temp[1])
             {
                 return RedirectToAction("Admin", "Home");
             }

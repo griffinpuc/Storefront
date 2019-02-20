@@ -22,7 +22,42 @@ namespace Main.Controllers
             repository = repo;
         }
 
-        public ViewResult Admin() => View(repository.Items);
+        [HttpGet]
+        public ViewResult Admin()
+        {
+            return View(repository.Items);
+            //List<LogInfo> Loginfo = AccountActions.Get();
+
+            //List<object> Data = new List<object>() {repository.Items, Loginfo};
+            //return View(Data);
+        }
+
+        [HttpPost]
+        public IActionResult Admin(string code, string name, string desc, string wprice, string price, string quantity, string category)
+        {
+
+            Item item = new Item
+            {
+                Code = int.Parse(code),
+                Name = name,
+                Desc = desc,
+                WPrice = Convert.ToDouble(wprice),
+                Price = Convert.ToDouble(price),
+                Quantity = int.Parse(quantity),
+                Category = category
+            };
+
+            if (repository.AddItem(item))
+            {
+
+                return View(repository.Items);
+
+            }
+
+            return RedirectToAction("Home", "Index");
+        }
+
+        public ViewResult Mod() => View(repository.Items);
 
 
         public IActionResult Edit(int? id)
@@ -30,6 +65,18 @@ namespace Main.Controllers
             Item edit_item = repository.GetItems(id.Value);
 
             return View(edit_item);
+        }
+
+        public IActionResult Delete(string id)
+        {
+
+            if (repository.DelItem(id))
+            {
+                return RedirectToAction("Admin", "Home");
+            }
+
+            return RedirectToAction("Home", "Index");
+
         }
     }
 }
