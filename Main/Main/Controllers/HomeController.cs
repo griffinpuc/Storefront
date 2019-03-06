@@ -10,78 +10,52 @@ namespace Main.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+
+        private readonly AppDBContext _context;
+
+        public HomeController(AppDBContext context)
         {
-            return View();
+            _context = context;
         }
 
-        IItemRepo repository;
-
-        public HomeController(IItemRepo repo)
+        public IActionResult Index()
         {
-            repository = repo;
+            return View(_context.GetAllItems());
         }
 
         [HttpGet]
         public ViewResult Admin()
         {
-            return View(repository.Items);
-            //List<LogInfo> Loginfo = AccountActions.Get();
-
-            //List<object> Data = new List<object>() {repository.Items, Loginfo};
-            //return View(Data);
+            return View(_context.GetAllItems());
         }
 
         [HttpPost]
-        public IActionResult Admin(string code, string name, string desc, string wprice, string price, string quantity, string category)
+        public IActionResult Admin(int x, string code, string name, string desc, string wprice, string price, string quantity, string category)
         {
-            int x = 1;
-            foreach(Item i in repository.Items)
-            {
-                x++;
-            }
-
             Item item = new Item
             {
                 Code = x,
                 Name = name,
-                Desc = desc,
+                Descr = desc,
                 WPrice = Convert.ToDouble(wprice),
                 Price = Convert.ToDouble(price),
                 Quantity = int.Parse(quantity),
                 Category = category
             };
 
-            if (repository.AddItem(item))
-            {
+            _context.AddItem(item);
 
-                return View(repository.Items);
-
-            }
-
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Admin", "Home");
         }
 
-        public ViewResult Mod() => View(repository.Items);
-
-
-        public IActionResult Edit(int? id)
-        {
-            Item edit_item = repository.GetItems(id.Value);
-
-            return View(edit_item);
-        }
-
-        public IActionResult Delete(string id)
+        public IActionResult Delete(Item item)
         {
 
-            if (repository.DelItem(id))
-            {
-                return RedirectToAction("Admin", "Home");
-            }
+            _context.RemoveItem(item);
 
             return RedirectToAction("Home", "Index");
 
         }
+
     }
 }

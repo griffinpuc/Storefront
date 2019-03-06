@@ -45,9 +45,9 @@ namespace Main.Models
             {
                 context.DBItems.AddRange(
 
-                    new Item { Code = 1, Name = "Plate", Desc = "A normal plate", WPrice = 9.30, Price = 15.99, Quantity = 150, Category = "Kitchen" },
-                    new Item { Code = 2, Name = "Bowl", Desc = "A normal bowl", WPrice = 3.20, Price = 10.29, Quantity = 150, Category = "Kitchen" },
-                    new Item { Code = 9, Name = "Orange Cotton Shirt", Desc = "A normal plain shirt", WPrice = 1.23, Price = 5.99, Quantity = 32, Category = "Clothing" }
+                    new Item { Code = 1, Name = "Plate", Descr = "A normal plate", WPrice = 9.30, Price = 15.99, Quantity = 150, Category = "Kitchen" },
+                    new Item { Code = 2, Name = "Bowl", Descr = "A normal bowl", WPrice = 3.20, Price = 10.29, Quantity = 150, Category = "Kitchen" },
+                    new Item { Code = 9, Name = "Orange Cotton Shirt", Descr = "A normal plain shirt", WPrice = 1.23, Price = 5.99, Quantity = 32, Category = "Clothing" }
                     );
 
                 context.SaveChanges();

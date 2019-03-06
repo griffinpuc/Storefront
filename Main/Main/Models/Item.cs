@@ -10,7 +10,7 @@ namespace Main.Models
         public int ID { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
-        public string Desc { get; set; }
+        public string Descr { get; set; }
         public double WPrice { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }

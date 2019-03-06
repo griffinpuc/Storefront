@@ -21,7 +21,7 @@ namespace Main.Models
                 {
                     Code = 1,
                     Name = "Plate",
-                    Desc = "A normal plate",
+                    Descr = "A normal plate",
                     WPrice = 9.30,
                     Price = 15.99,
                     Quantity = 150,
@@ -42,7 +42,7 @@ namespace Main.Models
                             i.ID = reader.GetInt32(reader.GetOrdinal("ID"));
                             i.Name = reader.GetString(reader.GetOrdinal("Name"));
                             i.Code = reader.GetInt32(reader.GetOrdinal("Code"));
-                            i.Desc = reader.GetString(reader.GetOrdinal("Descr"));
+                            i.Descr = reader.GetString(reader.GetOrdinal("Descr"));
                             i.WPrice = reader.GetDouble(reader.GetOrdinal("WPrice"));
                             i.Price = reader.GetDouble(reader.GetOrdinal("Price"));
                             i.Quantity = reader.GetInt32(reader.GetOrdinal("Quantity"));
@@ -90,7 +90,7 @@ namespace Main.Models
                 {
                     command.Parameters.AddWithValue("@2", item.Name);
                     command.Parameters.AddWithValue("@3", item.Code);
-                    command.Parameters.AddWithValue("@4", item.Desc);
+                    command.Parameters.AddWithValue("@4", item.Descr);
                     command.Parameters.AddWithValue("@5", item.WPrice);
                     command.Parameters.AddWithValue("@6", item.Price);
                     command.Parameters.AddWithValue("@7", item.Quantity);

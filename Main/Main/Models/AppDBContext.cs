@@ -18,5 +18,22 @@ namespace Main.Models
 
         public DbSet<LogInfo> DBCreds { get; set; }
 
+        public List<Item> GetAllItems()
+        {
+            return (from item in DBItems select item).ToList();
+        }
+
+        public void AddItem(Item item)
+        {
+            Add(item);
+            SaveChanges();
+        }
+
+        public void RemoveItem(Item item)
+        {
+            Remove(item);
+            SaveChanges();
+        }
+
     }
 }
