@@ -48,14 +48,32 @@ namespace Main.Controllers
             return RedirectToAction("Admin", "Home");
         }
 
-        public IActionResult Delete(Item item)
+        public IActionResult Delete(int? id)
         {
 
-            _context.RemoveItem(item);
+            _context.RemoveItem(id);
 
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Admin", "Home");
 
         }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            Item item = _context.GetFromID(id);
+
+            return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Item item)
+        {
+            _context.UpdateItem(item);
+
+            return RedirectToAction("Admin", "Home");
+        }
+
+        public IActionResult 
 
     }
 }

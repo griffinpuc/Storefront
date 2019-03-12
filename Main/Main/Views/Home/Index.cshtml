@@ -5,7 +5,26 @@
     <title>Storefront</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
+
+
 <body>
+
     <h1 style="text-align: center;"><span class="label label-default">Online Shop - Home Page</span></h1>
+    <br />
+
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default" style="float: right; width: 20vh; margin: 3vh;">
+            <div class="panel-heading" style="font-size: 15pt;">@item.Name</div>
+            <div class="panel-body" style="font-size: 12pt;">
+                <p>@item.Price</p>
+                <p>@item.Descr</p>
+                <p>@item.Category</p>
+                <button class="btn btn-info" style="margin: 2px;" type="submit">Add to Cart</button>
+            </div>
+        </div>
+    }
+
+
 </body>
 </html>

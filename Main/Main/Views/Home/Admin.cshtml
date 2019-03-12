@@ -23,20 +23,6 @@
     <h1 style="text-align: center; font-size: 45pt;">Admin Panel</h1>
 
     <br />
-
-    <div class="row">
-        <div class="col-sm-6" style="text-align: center;">
-            <div class="jumbotron">
-                <i class="fas fa-user-alt" style="font-size: 45pt;"></i>
-                <p style="font-size: 25pt">Account Actions</p>
-                <p style="font-size: 13pt">Edit settings relating to user accounts, passwords, and permissions.</p>
-                <button class="btn btn-primary" type="button">Change Username</button>
-                <button class="btn btn-primary" type="button">Change Password</button>
-                <button class="btn btn-primary" type="button">Manage Users</button>
-
-            </div>
-        </div>
-        <div class="col-sm-6" style="text-align: center;">
             <div class="jumbotron">
                 <i class="fas fa-file-upload" style="font-size: 45pt;"></i>
                 <p style="font-size: 25pt">Inventory Actions</p>
@@ -44,8 +30,7 @@
                 <button class="btn btn-primary" type="button">Export Data</button>
                 <button class="btn btn-primary" type="button">Import Data</button>
             </div>
-        </div>
-    </div>
+
 
     <br />
 
@@ -62,7 +47,7 @@
             <ul class="dropdown-menu" id="category_drop">
                 @foreach (string cat in unique_items)
                 {
-                    <li><a href="#">@cat</a></li>
+                    <li><a href="/Admin/Home/@cat">@cat</a></li>
 
                 }
             </ul>
@@ -98,12 +83,14 @@
                 <th style="color: cornflowerblue">@item.Quantity Units</th>
                 <th>@item.Category</th>
                 <th>
-                    <form asp-controller="home" asp-action="edit" asp-route-id="@item.Code">
+                    <form asp-controller="home" asp-action="edit" method="get"> 
+                        <input type="hidden" asp-for="@item.ID" name="ID" />
                         <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
                     </form>
                 </th>
                 <th>
-                    <form asp-controller="home" asp-action="delete" asp-route-id="@item">
+                    <form asp-controller="home" asp-action="delete">
+                        <input type="hidden" asp-for="@item.ID" name="ID"/>
                         <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
                     </form>
                 </th>
