@@ -26,7 +26,7 @@ namespace Main
                 var services = scope.ServiceProvider;
 
                 var DBContext = services.GetRequiredService<AppDBContext>();
-                SeedDB.PopulateDB(DBContext);
+                //SeedDB.PopulateDB(DBContext);
                 //SeedDB.PopulateDB2(DBContext);
             }
 

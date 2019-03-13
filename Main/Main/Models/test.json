@@ -1,0 +1,27 @@
+﻿{
+  "test_database_export": {
+
+    "product-129966": {
+      "ID": 4321,
+      "Code": 1001,
+      "Name": "Metroid",
+      "Descr": "A videogame thats fun",
+      "WPrice": 20,
+      "Price": 45,
+      "Quantity": 150,
+      "Category": "Gameboy"
+    },
+
+    "product-129955": {
+      "ID": 233344, 
+      "Code": 1001,
+      "Name": "Metroid 2",
+      "Descr": "A videogame thats fun",
+      "WPrice": 20,
+      "Price": 55,
+      "Quantity": 250,
+      "Category": "Gameboy"
+    }
+
+  }
+}

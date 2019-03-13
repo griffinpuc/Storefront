@@ -9,6 +9,15 @@ namespace Main.Controllers
 {
     public class LoginController : Controller
     {
+
+        private readonly AppDBContext _context;
+
+        public LoginController(AppDBContext context)
+        {
+            _context = context;
+        }
+
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -19,7 +28,7 @@ namespace Main.Controllers
         public IActionResult Login(string uname, string pass)
         {
 
-            List<bool> Temp = AccountActions.Validate(uname, pass);
+            List<bool> Temp = _context.Validate(uname, pass);
             if (Temp[0] && !Temp[1])
             {
                 return RedirectToAction("Mod", "Home");

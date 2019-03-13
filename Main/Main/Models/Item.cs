@@ -7,6 +7,7 @@ namespace Main.Models
 {
     public class Item
     {
+        //Item class constructor
         public int ID { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }

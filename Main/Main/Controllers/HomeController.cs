@@ -73,7 +73,8 @@ namespace Main.Controllers
             return RedirectToAction("Admin", "Home");
         }
 
-        public IActionResult 
+        //public IActionResult
+
 
     }
 }
