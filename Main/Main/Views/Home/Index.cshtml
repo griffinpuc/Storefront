@@ -14,7 +14,7 @@
 
     @foreach (var item in Model)
     {
-        <div class="panel panel-default" style="float: right; width: 30vh; height:30vh; margin: 3vh; text-align: center">
+        <div class="panel panel-default" style="float: right; width: 40vh; height:30vh; margin: 3vh; text-align: center">
 
             <div class="panel-heading">
                 <p style="font-size: 20pt;">@item.Name</p>
@@ -22,9 +22,10 @@
             </div>
 
             <div class="panel-body" style="font-size: 13pt;">
-                <p style="font-size: 12pt;">@item.Descr</p>
-
-                <div>
+                <div style="float: left;">
+                    <img height="150px" src="https://www.lukiegames.com/assets/images/GBA/BoxScans/GBA_Super_Mario_Advance_2_-_Super_Mario_World_Box.jpg"/>
+                </div>
+                <div style="float: right;">
                     <p style="font-size: 25pt;">$@item.Price.00</p>
                     <button class="btn btn-info" style="font-size: 15pt; width: 20vh; height:5vh; margin: 2px;" type="submit">Add to Cart</button>
                 </div>

@@ -139,5 +139,11 @@ namespace Main.Models
             //Response.End();
         }
 
+        //METHOD: Upload Photo
+        public void UploadPhoto(int? id)
+        {
+
+        }
+
     }
 }
