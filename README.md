@@ -1,13 +1,7 @@
-# 🛍 Storefront
-Web development II final project - A storefront where admins can add products to categories and manage prices, stock, and metadata.
+# Storefront
 
-TO DO:
-  
-  - Auto-code system in order to clean up deleting
-  - User management system
-  - Front pages and category management
-  - Export/Import inventories
-  - Wireframes
-  - Cart and checkout management
-
-![Alt text](Images/first.png?raw=true "Mockup-1")
+### For more information visit the [wiki](https://github.com/griffinpuc/Storefront/wiki)
+1. [About the app](https://github.com/griffinpuc/Storefront/wiki#What-the-application-does)
+2. [Program features](https://github.com/griffinpuc/Storefront/wiki#Program-features)
+3. [Index behavior](https://github.com/griffinpuc/Storefront/wiki#Index-behavior)
+4. [Admin panel behavior](https://github.com/griffinpuc/Storefront/wiki#Admin-panel-behavior)
