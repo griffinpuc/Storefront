@@ -1,5 +1,7 @@
 # Storefront
 
+Programmed by [@griffinpuc](https://github.com/griffinpuc)  and [@ekiff](https://github.com/ekiff)
+
 ### For more information visit the [wiki](https://github.com/griffinpuc/Storefront/wiki)
 1. [About the app](https://github.com/griffinpuc/Storefront/wiki#What-the-application-does)
 2. [Program features](https://github.com/griffinpuc/Storefront/wiki#Program-features)
