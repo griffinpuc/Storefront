@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Main.Models;
 using System.IO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Main.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IHostingEnvironment _hostEnvironment;
 
         private readonly AppDBContext _context;
 
-        public HomeController(AppDBContext context)
+        public HomeController(AppDBContext context, IHostingEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
+
 
         public IActionResult Index()
         {
@@ -31,7 +36,7 @@ namespace Main.Controllers
         }
 
         [HttpPost]
-        public IActionResult Admin(int x, string code, string name, string desc, string wprice, string price, string quantity, string category)
+        public IActionResult Admin(int x, string code, string name, string desc, string wprice, string price, string quantity, string category, string ImageURL)
         {
             Item item = new Item
             {
@@ -41,7 +46,8 @@ namespace Main.Controllers
                 WPrice = Convert.ToDouble(wprice),
                 Price = Convert.ToDouble(price),
                 Quantity = int.Parse(quantity),
-                Category = category
+                Category = category,
+                ImageURL = ImageURL
             };
 
             _context.AddItem(item);
@@ -74,7 +80,28 @@ namespace Main.Controllers
             return RedirectToAction("Admin", "Home");
         }
 
-        
+        public IActionResult Export()
+        {
+            _context.ExportJSON();
+
+            return RedirectToAction("Admin", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult Import(IFormFile file)
+        {
+
+            var filepath = Path.GetTempFileName();
+
+            using (var stream = new FileStream(filepath, FileMode.Create))
+            {
+                file.CopyToAsync(stream);
+            }
+
+            _context.ImportJSON(filepath);
+
+            return RedirectToAction("Admin", "Home");
+        }
 
     }
 }

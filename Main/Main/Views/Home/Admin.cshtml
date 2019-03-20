@@ -23,18 +23,8 @@
     <h1 style="text-align: center; font-size: 45pt;">Admin Panel</h1>
 
     <br />
-            <div class="jumbotron">
-                <i class="fas fa-file-upload" style="font-size: 45pt;"></i>
-                <p style="font-size: 25pt">Inventory Actions</p>
-                <p style="font-size: 13pt">Import and export data files to easily switch and edit inventories.</p>
-                <button class="btn btn-primary" type="button">Export Data</button>
-                <button class="btn btn-primary" type="button">Import Data</button>
-            </div>
 
-
-    <br />
-
-    <div class="jumbotron">
+    <div class="jumbotron" style="width: 150vh;">
 
         <div class="dropdown">
 
@@ -61,10 +51,15 @@
                 <th>ID</th>
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Item</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Description</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Wholesale Price</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Retail Price</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Quantity</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Category</th>
             </tr>
             <tr>
@@ -73,28 +68,33 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <th style="color: cornflowerblue; font-size: 15pt;" name="code">#@item.ID</th>
-                <th></th>
-                <th>@item.Name</th>
-                <th style="color: gray">@item.Descr</th>
-                <th>$@item.WPrice</th>
-                <th>$@item.Price</th>
-                <th style="color: cornflowerblue">@item.Quantity Units</th>
-                <th>@item.Category</th>
-                <th>
-                    <form asp-controller="home" asp-action="edit" method="get"> 
-                        <input type="hidden" asp-for="@item.ID" name="ID" />
-                        <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
-                    </form>
-                </th>
-                <th>
-                    <form asp-controller="home" asp-action="delete">
-                        <input type="hidden" asp-for="@item.ID" name="ID"/>
-                        <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
-                    </form>
-                </th>
-            </tr>
+                <tr>
+                    <th style="color: cornflowerblue; font-size: 15pt;" name="code">#@item.ID</th>
+                    <th></th>
+                    <th>@item.Name</th>
+                    <th></th>
+                    <th style="color: gray; font-size: 10pt; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">@item.Descr</th>
+                    <th></th>
+                    <th>$@item.WPrice</th>
+                    <th></th>
+                    <th>$@item.Price</th>
+                    <th></th>
+                    <th style="color: cornflowerblue">@item.Quantity Units</th>
+                    <th></th>
+                    <th>@item.Category</th>
+                    <th>
+                        <form asp-controller="home" asp-action="edit" method="get">
+                            <input type="hidden" asp-for="@item.ID" name="ID" />
+                            <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
+                        </form>
+                    </th>
+                    <th>
+                        <form asp-controller="home" asp-action="delete">
+                            <input type="hidden" asp-for="@item.ID" name="ID" />
+                            <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
+                        </form>
+                    </th>
+                </tr>
             }
 
         </table>
@@ -126,6 +126,7 @@
                         <input type="text" class="form-control" placeholder="Category" id="category" name="category" required>
                     </th>
                     <th>
+                        <input type="text" class="form-control" placeholder="ImageURL" id="ImageURL" name="ImageURL" required>
                     </th>
                 </tr>
             </table>
@@ -136,6 +137,40 @@
             </div>
         </form>
 
+
+    </div>
+
+    <br />
+    
+    <div class="col-sm-6">
+
+        <div class="jumbotron" style="text-align: center;">
+            <i class="fas fa-file-upload" style="font-size: 45pt;"></i>
+            <p style="font-size: 25pt">Inventory Actions</p>
+            <p style="font-size: 13pt">Import and export data files to easily switch and edit inventories.</p>
+
+            <form asp-controller="home" asp-action="import" enctype="multipart/form-data">
+                <input type="file" name="file" class="btn btn-primary" style="margin: 2px;" />
+                <button class="btn btn-primary" style="margin: 2px;" type="submit">Import File</button>
+            </form>
+
+            <form asp-controller="home" asp-action="export">
+                <button class="btn btn-primary" style="margin: 2px;" type="submit">Export File</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-sm-6">
+
+        <div class="jumbotron">
+            <i class="fas fa-file-upload" style="font-size: 45pt; text-align: center;"></i>
+            <p style="font-size: 25pt">Inventory Actions</p>
+            <p style="font-size: 13pt">Import and export data files to easily switch and edit inventories.</p>
+
+
+        </div>
 
     </div>
 

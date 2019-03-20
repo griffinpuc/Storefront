@@ -10,10 +10,15 @@
     <title>Edit Page</title>
 </head>
 <body>
+
     <h1 style="text-align: center;"><span class="label label-default">Edit "@Model.Name"</span></h1>
+
     <br />
+
     <form asp-controller="home" asp-action="edit">
+
         <table style="width: 100%; font-size: 12pt; border-spacing: 15vh; border-collapse: separate; border-spacing: 5px;">
+
             <tr>
                 <th>ID</th>
                 <th>Item</th>
@@ -23,8 +28,9 @@
                 <th>Quantity</th>
                 <th>Category</th>
             </tr>
+
             <tr>
-                <th><span class="label label-info" name="ID" style="font-size: 12pt;">#@Model.ID</span></th>
+                <th>@Model.ID</th>
                 <th><input type="text" name="Name" size="15" value="@Model.Name" /></th>
                 <th><input type="text" name="Descr" size="15" value="@Model.Descr" /></th>
                 <th><input type="text" name="WPrice" size="15" value=@Model.WPrice /></th>
@@ -32,13 +38,20 @@
                 <th><input type="text" name="Quantity" size="15" value=@Model.Quantity /></th>
                 <th><input type="text" name="Category" size="15" value=@Model.Category /></th>
             </tr>
+
         </table>
 
-        <input type="hidden" asp-for="@Model.ID" name="ID" />
+        <br />
 
-        <input type="file" name="file" />
-        <br />  
+        <h4>Image URL Link</h4>
+
+        <input type="text" name="ImageURL" size="150" value=@Model.ImageURL />
+
+        
+        <br />
+        <input type="hidden" name="ID" value="@Model.ID" style="font-size: 12pt;" />
         <button class="btn btn-success" style="margin: 2px;" type="submit">Update</button>
+
     </form>
 
 </body>

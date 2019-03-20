@@ -4,10 +4,16 @@
 <head>
     <title>Storefront</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Views/Home/customstyles.css" rel="stylesheet" />
 </head>
 
 
+
 <body>
+
+    <div class="">
+
+    </div>
 
     <h1 style="text-align: center;"><span class="label label-default">Online Shop - Home Page</span></h1>
     <br />
@@ -22,14 +28,16 @@
             </div>
 
             <div class="panel-body" style="font-size: 13pt;">
+
                 <div style="float: left;">
-                    <img height="150px" src="https://www.lukiegames.com/assets/images/GBA/BoxScans/GBA_Super_Mario_Advance_2_-_Super_Mario_World_Box.jpg"/>
+                    <img height="100vh" src="@item.ImageURL" />
                 </div>
+
                 <div style="float: right;">
                     <p style="font-size: 25pt;">$@item.Price.00</p>
                     <button class="btn btn-info" style="font-size: 15pt; width: 20vh; height:5vh; margin: 2px;" type="submit">Add to Cart</button>
                 </div>
-                
+
             </div>
 
         </div>

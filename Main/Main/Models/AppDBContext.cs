@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Main.Models
 {
@@ -99,6 +100,17 @@ namespace Main.Models
         //METHOD: Validate the entered data against stored database creds
         public List<bool> Validate(string uname, string pass)
         {
+            LogInfo log = new LogInfo()
+            {
+                uname = ComputeHash("admin"),
+                pass = ComputeHash("password"),
+                permission = true
+
+            };
+        
+
+            Add(log);
+            SaveChanges();
 
             List<LogInfo> CredList = GetAllCreds();
 
@@ -118,32 +130,45 @@ namespace Main.Models
         }
 
 
-        //METHOD: Export CSV
-        public void ExportCSV()
+        //METHOD: Export JSON
+        public void ExportJSON()
         {
-            List<Item> _data = new List<Item>();
 
-            foreach (Item item in GetAllItems())
+            List<Item> Items = GetAllItems();
+            string json = JsonConvert.SerializeObject(Items, Formatting.Indented);
+
+            System.IO.File.WriteAllText(@"C:\Users\Griffin\Desktop\tester.json", json);
+        }
+
+        //METHOD: Import JSON
+        public void ImportJSON(string path)
+        {
+            using (TransactionScope txnScop = new TransactionScope())
             {
-                _data.Add(item);
+                //Database.BeginTransaction();
+
+                Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[DBItems] OFF");
+
+                string json = File.ReadAllText(path);
+                List<Item> Items = JsonConvert.DeserializeObject<List<Item>>(json);
+
+                foreach (Item item in GetAllItems())
+                {
+                    Remove(item);
+                }
+
+                foreach (Item item in Items)
+                {
+                    Add(item);
+                }
+
+                Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[DBItems] ON");
+                SaveChanges();
+                txnScop.Complete();
             }
-            
-            string json = JsonConvert.SerializeObject(_data.ToArray());
-
-            //write string to file
-            System.IO.File.WriteAllText(@"D:\path.txt", json);
-
-            //Response.ContentType = "image/jpeg";
-            //Response.AppendHeader("Content-Disposition", "attachment; filename=SailBig.jpg");
-            //Response.TransmitFile(Server.MapPath("~/images/sailbig.jpg"));
-            //Response.End();
         }
 
-        //METHOD: Upload Photo
-        public void UploadPhoto(int? id)
-        {
-
-        }
+        
 
     }
 }
