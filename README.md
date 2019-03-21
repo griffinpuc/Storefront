@@ -1,5 +1,4 @@
 # Storefront
----------------
 
 Programmed by [@griffinpuc](https://github.com/griffinpuc)  and [@ekiff](https://github.com/ekiff)
 
