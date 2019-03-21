@@ -1,0 +1,68 @@
+[
+  {
+    "ID": 17043,
+    "Code": 0,
+    "Name": "Pokemon Red",
+    "Descr": "A game",
+    "WPrice": 10.0,
+    "Price": 40.0,
+    "Quantity": 1000,
+    "Category": "Gameboy",
+    "ImageURL": "https://f4.bcbits.com/img/a0723621388_10.jpg"
+  },
+  {
+    "ID": 17044,
+    "Code": 0,
+    "Name": "Pokemon Blue",
+    "Descr": "A game",
+    "WPrice": 10.0,
+    "Price": 40.0,
+    "Quantity": 1000,
+    "Category": "Gameboy",
+    "ImageURL": "https://vignette.wikia.nocookie.net/logopedia/images/d/d8/Pokemon_blue_cover_art_by_comunello76-d4xvjro.jpg/revision/latest?cb=20150315220604"
+  },
+  {
+    "ID": 17045,
+    "Code": 0,
+    "Name": "Metroid Zero Mission",
+    "Descr": "A metroid game",
+    "WPrice": 20.0,
+    "Price": 50.0,
+    "Quantity": 1200,
+    "Category": "Gameboy Adv.",
+    "ImageURL": "https://www.mobygames.com/images/covers/l/69704-metroid-zero-mission-game-boy-advance-front-cover.jpg"
+  },
+  {
+    "ID": 17046,
+    "Code": 0,
+    "Name": "Super Smash Bros",
+    "Descr": "A nintendo game",
+    "WPrice": 20.0,
+    "Price": 60.0,
+    "Quantity": 2000,
+    "Category": "Gamecube",
+    "ImageURL": "https://images.lukiegames.com/t_300e2/assets/images/GC/gc_super_smash_bros_melee_p_iq23ij.jpg"
+  },
+  {
+    "ID": 17047,
+    "Code": 0,
+    "Name": "Mario Kart",
+    "Descr": "A mario kart game",
+    "WPrice": 20.0,
+    "Price": 60.0,
+    "Quantity": 2000,
+    "Category": "Gamecube",
+    "ImageURL": "https://i.ebayimg.com/images/g/GoQAAOSwDNdVqrlY/s-l300.jpg"
+  },
+  {
+    "ID": 17048,
+    "Code": 0,
+    "Name": "Luigi's Mansion",
+    "Descr": "A nintendo luigi game",
+    "WPrice": 20.0,
+    "Price": 60.0,
+    "Quantity": 1000,
+    "Category": "Gamecube",
+    "ImageURL": "https://cdn11.bigcommerce.com/s-ymgqt/images/stencil/original/products/19007/23004/Luigis_Mansion_box__40032.1398278061.jpg?c=2&imbypass=on"
+  }
+]
