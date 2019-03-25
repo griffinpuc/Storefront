@@ -38,6 +38,10 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult Admin(int x, string code, string name, string desc, string wprice, string price, string quantity, string category, string ImageURL)
         {
+            if(ImageURL == null)
+            {
+                ImageURL = "https://www.kurin.com/wp-content/uploads/placeholder-square.jpg";
+            }
             Item item = new Item
             {
                 Code = x,
