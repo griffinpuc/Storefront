@@ -1,4 +1,13 @@
-﻿@model IEnumerable<Item>
+﻿@model Main.Models.CatItemView
+
+@{
+    List<string> categories = new List<string>() { "All" };
+    foreach (var cat in Model.Cats)
+    {
+        categories.Add(cat);
+    }
+    var unique_items = new HashSet<string>(categories);
+}
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,16 +20,30 @@
 
 <body>
 
-    <div class="">
-
-    </div>
-
     <h1 style="text-align: center;"><span class="label label-default">Online Shop - Home Page</span></h1>
     <br />
 
-    @foreach (var item in Model)
+    <h4>Sort by Category:</h4>
+
+    <div style="margin-bottom: 20px;">
+        @foreach (string cat in unique_items)
+        {
+
+            <form asp-controller="home" asp-action="sort" method="get" style="float: left;">
+                <input type="hidden" asp-for="@cat" name="category" />
+                <button class="btn btn-default" style="margin: 2px;" type="submit">@cat</button>
+            </form>
+
+        }
+
+    </div>
+
+    <br />
+    <hr />
+
+    @foreach (var item in Model.Items)
     {
-        <div class="panel panel-default" style="float: right; width: 40vh; height:30vh; margin: 3vh; text-align: center">
+        <div class="panel panel-default" style="float: left; width: 40vh; height:30vh; margin: 3vh; text-align: center">
 
             <div class="panel-heading">
                 <p style="font-size: 20pt;">@item.Name</p>

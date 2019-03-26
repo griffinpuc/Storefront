@@ -12,9 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\Mod.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Views\Home\Admin.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

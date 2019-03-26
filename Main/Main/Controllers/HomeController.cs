@@ -24,9 +24,32 @@ namespace Main.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string Category)
         {
-            return View(_context.GetAllItems());
+            
+            var Cat = _context.GetAllCats();
+            var Item = _context.GetAllItems();
+
+            if (Category != null && Category != "All")
+            {
+
+                Item = _context.GetFromCat(Category);
+
+            }
+
+            var MyView = new CatItemView
+            {
+                Items = Item,
+                Cats = Cat
+            };
+
+            return View(MyView);
+            
+        }
+
+        public IActionResult Sort(string category)
+        {
+            return RedirectToAction("Index", "Home", new { Category = category });
         }
 
         [HttpGet]
@@ -42,6 +65,7 @@ namespace Main.Controllers
             {
                 ImageURL = "https://www.kurin.com/wp-content/uploads/placeholder-square.jpg";
             }
+
             Item item = new Item
             {
                 Code = x,

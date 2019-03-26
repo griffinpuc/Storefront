@@ -168,7 +168,12 @@ namespace Main.Models
             }
         }
 
-        
+
+        //METHOD: Return list of all categories
+        public List<string> GetAllCats()
+        {
+            return (from item in DBItems select item.Category).ToList();
+        }
 
     }
 }
