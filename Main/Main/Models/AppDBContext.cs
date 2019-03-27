@@ -175,5 +175,21 @@ namespace Main.Models
             return (from item in DBItems select item.Category).ToList();
         }
 
+
+        //METHOD: Sort by high to low
+        public List<Item> Highlow()
+        {
+            return (from item in DBItems orderby item.Price ascending select item).ToList();
+            
+        }
+
+
+        //METHOD: Sort by low to high
+        public List<Item> LowHigh()
+        {
+            return (from item in DBItems orderby item.Price descending select item).ToList();
+        }
+
+
     }
 }

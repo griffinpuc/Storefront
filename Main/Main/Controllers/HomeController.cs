@@ -30,7 +30,17 @@ namespace Main.Controllers
             var Cat = _context.GetAllCats();
             var Item = _context.GetAllItems();
 
-            if (Category != null && Category != "All")
+            if (Category == "sortHL")
+            {
+                Item = _context.Highlow();
+            }
+
+            else if (Category == "sortLH")
+            {
+                Item = _context.LowHigh();
+            }
+
+            else if (Category != null && Category != "All")
             {
 
                 Item = _context.GetFromCat(Category);
@@ -50,6 +60,18 @@ namespace Main.Controllers
         public IActionResult Sort(string category)
         {
             return RedirectToAction("Index", "Home", new { Category = category });
+        }
+
+        public IActionResult SortLH()
+        {
+            return RedirectToAction("Index", "Home", new { Category = "sortLH" });
+
+        }
+
+        public IActionResult SortHL()
+        {
+            return RedirectToAction("Index", "Home", new { Category = "sortHL" });
+
         }
 
         [HttpGet]
