@@ -1,14 +1,5 @@
 ﻿@model IEnumerable<Item>
 
-@{
-    List<string> categories = new List<string>() { "All Catgories" };
-    foreach (var item in Model)
-    {
-        categories.Add(item.Category);
-    }
-    var unique_items = new HashSet<string>(categories);
-}
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -25,25 +16,6 @@
     <br />
 
     <div class="jumbotron" style="width: 150vh;">
-
-        <div class="dropdown">
-
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                Order by Category
-                <span class="caret"></span>
-            </button>
-
-            <ul class="dropdown-menu" id="category_drop">
-                @foreach (string cat in unique_items)
-                {
-
-
-
-                }
-            </ul>
-
-        </div>
-
 
         <br />
 
@@ -156,14 +128,17 @@
             <p style="font-size: 25pt">Inventory Actions</p>
             <p style="font-size: 13pt">Import and export data files to easily switch and edit inventories.</p>
 
+            <br />
 
             <form asp-controller="home" asp-action="import" enctype="multipart/form-data">
-                <input type="file" name="file" class="btn btn-primary" style="margin: 2px;" />
-                <button class="btn btn-primary" style="margin: 2px;" type="submit">Import File</button>
+                <input type="file" name="file" class="btn btn-link" style="margin: 2px; width: 50vh;" />
+                <button class="btn btn-primary" style="margin: 2px; width: 50vh;" type="submit">Import File</button>
             </form>
 
+            <hr />
+
             <form asp-controller="home" asp-action="export">
-                <button class="btn btn-primary" style="margin: 2px;" type="submit">Export File</button>
+                <button class="btn btn-info" style="margin: 2px; width: 50vh;" type="submit">Export File</button>
             </form>
 
         </div>

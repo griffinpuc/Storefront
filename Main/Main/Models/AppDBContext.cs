@@ -136,8 +136,10 @@ namespace Main.Models
 
             List<Item> Items = GetAllItems();
             string json = JsonConvert.SerializeObject(Items, Formatting.Indented);
+            var file = json;
 
             System.IO.File.WriteAllText(@"C:\Users\Griffin\Desktop\tester.json", json);
+
         }
 
         //METHOD: Import JSON
