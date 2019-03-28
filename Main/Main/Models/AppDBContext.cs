@@ -131,14 +131,10 @@ namespace Main.Models
 
 
         //METHOD: Export JSON
-        public void ExportJSON()
+        public string ExportJSON()
         {
-
             List<Item> Items = GetAllItems();
-            string json = JsonConvert.SerializeObject(Items, Formatting.Indented);
-            var file = json;
-
-            System.IO.File.WriteAllText(@"C:\Users\Griffin\Desktop\tester.json", json);
+            return JsonConvert.SerializeObject(Items, Formatting.Indented);
 
         }
 

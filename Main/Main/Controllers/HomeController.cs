@@ -8,6 +8,8 @@ using Main.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using System.Web;
+using System.Text;
 
 namespace Main.Controllers
 {
@@ -75,7 +77,7 @@ namespace Main.Controllers
         }
 
         [HttpGet]
-        public ViewResult Admin()
+        public ViewResult Admin(bool access)
         {
             return View(_context.GetAllItems());
         }
@@ -132,9 +134,10 @@ namespace Main.Controllers
 
         public IActionResult Export()
         {
-            _context.ExportJSON();
+            string json = _context.ExportJSON();
 
-            return RedirectToAction("Admin", "Home");
+            Stream memstream = new MemoryStream(Encoding.ASCII.GetBytes(json));
+            return File(memstream, "application/json", "test.json");
         }
 
         [HttpPost]
@@ -142,6 +145,11 @@ namespace Main.Controllers
         {
 
             var filepath = Path.GetTempFileName();
+
+            if (file == null)
+            {
+                return RedirectToAction("Admin", "Home");
+            }
 
             using (var stream = new FileStream(filepath, FileMode.Create))
             {
