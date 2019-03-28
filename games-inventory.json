@@ -11,17 +11,6 @@
     "ImageURL": "https://f4.bcbits.com/img/a0723621388_10.jpg"
   },
   {
-    "ID": 17044,
-    "Code": 0,
-    "Name": "Pokemon Blue",
-    "Descr": "A game",
-    "WPrice": 10.0,
-    "Price": 40.0,
-    "Quantity": 1000,
-    "Category": "Gameboy",
-    "ImageURL": "https://vignette.wikia.nocookie.net/logopedia/images/d/d8/Pokemon_blue_cover_art_by_comunello76-d4xvjro.jpg/revision/latest?cb=20150315220604"
-  },
-  {
     "ID": 17045,
     "Code": 0,
     "Name": "Metroid Zero Mission",
@@ -29,7 +18,7 @@
     "WPrice": 20.0,
     "Price": 50.0,
     "Quantity": 1200,
-    "Category": "Gameboy Adv.",
+    "Category": "Gameboy",
     "ImageURL": "https://www.mobygames.com/images/covers/l/69704-metroid-zero-mission-game-boy-advance-front-cover.jpg"
   },
   {
@@ -64,5 +53,126 @@
     "Quantity": 1000,
     "Category": "Gamecube",
     "ImageURL": "https://cdn11.bigcommerce.com/s-ymgqt/images/stencil/original/products/19007/23004/Luigis_Mansion_box__40032.1398278061.jpg?c=2&imbypass=on"
+  },
+  {
+    "ID": 21043,
+    "Code": 0,
+    "Name": "Sonic",
+    "Descr": "A hedgehog",
+    "WPrice": 5.0,
+    "Price": 15.0,
+    "Quantity": 5,
+    "Category": "Sega Genesis",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Sonic_the_Hedgehog_1_Genesis_box_art.jpg/220px-Sonic_the_Hedgehog_1_Genesis_box_art.jpg"
+  },
+  {
+    "ID": 21044,
+    "Code": 0,
+    "Name": "Sonic: 2",
+    "Descr": "Second heddgehog game",
+    "WPrice": 5.0,
+    "Price": 17.0,
+    "Quantity": 10,
+    "Category": "Sega Genesis",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Sonic2_European_Box.jpg/220px-Sonic2_European_Box.jpg"
+  },
+  {
+    "ID": 21045,
+    "Code": 0,
+    "Name": "Altered Beast",
+    "Descr": "sega game",
+    "WPrice": 5.0,
+    "Price": 15.0,
+    "Quantity": 7,
+    "Category": "Sega Genesis",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Altered_Beast_cover.jpg/220px-Altered_Beast_cover.jpg"
+  },
+  {
+    "ID": 21046,
+    "Code": 0,
+    "Name": "Ocarina of Time",
+    "Descr": "Best Zelda game",
+    "WPrice": 10.0,
+    "Price": 20.0,
+    "Quantity": 10,
+    "Category": "N64",
+    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/51AO2aVHDML._SX347_BO1,204,203,200_.jpg"
+  },
+  {
+    "ID": 21048,
+    "Code": 0,
+    "Name": "Goldeneye 007",
+    "Descr": "good game",
+    "WPrice": 5.0,
+    "Price": 15.0,
+    "Quantity": 10,
+    "Category": "N64",
+    "ImageURL": "https://m.media-amazon.com/images/M/MV5BNGZhZTk4ZjQtYjc2ZC00ZTdmLWJkMjEtNmRiY2ZjMjRhZjJlXkEyXkFqcGdeQXVyNzg3NjQyOQ@@._V1_UY268_CR4,0,182,268_AL_.jpg"
+  },
+  {
+    "ID": 21049,
+    "Code": 0,
+    "Name": "Super Mario 64",
+    "Descr": "great game",
+    "WPrice": 10.0,
+    "Price": 20.0,
+    "Quantity": 20,
+    "Category": "N64",
+    "ImageURL": "https://image.jimcdn.com/app/cms/image/transf/dimension=origxorig:format=jpg/path/s45d479059abc969b/image/i634389fdffa51353/version/1458207856/super-mario-64.jpg"
+  },
+  {
+    "ID": 21050,
+    "Code": 0,
+    "Name": "Sonic Adventure",
+    "Descr": "okay game",
+    "WPrice": 5.0,
+    "Price": 10.0,
+    "Quantity": 3,
+    "Category": "Dreamcast",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Sonic_Adventure.PNG/220px-Sonic_Adventure.PNG"
+  },
+  {
+    "ID": 21051,
+    "Code": 0,
+    "Name": "Resident Evil",
+    "Descr": "never played it",
+    "WPrice": 5.0,
+    "Price": 10.0,
+    "Quantity": 2,
+    "Category": "Dreamcast",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/RECV_boxart.jpg/220px-RECV_boxart.jpg"
+  },
+  {
+    "ID": 21052,
+    "Code": 0,
+    "Name": "Super Mario Land",
+    "Descr": "Great game",
+    "WPrice": 10.0,
+    "Price": 40.0,
+    "Quantity": 1000,
+    "Category": "Gameboy",
+    "ImageURL": "http://takeontheneslibrary.com/wp-content/uploads/2016/06/gb_supermarioland.jpg"
+  },
+  {
+    "ID": 21053,
+    "Code": 0,
+    "Name": "Pokemon Yellow",
+    "Descr": "Another really good game",
+    "WPrice": 10.0,
+    "Price": 50.0,
+    "Quantity": 30,
+    "Category": "Gameboy",
+    "ImageURL": "https://vignette.wikia.nocookie.net/pokemon/images/a/a5/Pokemon_Yellow.jpg/revision/latest?cb=20081012170208"
+  },
+  {
+    "ID": 21054,
+    "Code": 0,
+    "Name": "Pokemon Gold",
+    "Descr": "Super good game, made by Nintendo",
+    "WPrice": 10.0,
+    "Price": 50.0,
+    "Quantity": 10,
+    "Category": "Gameboy",
+    "ImageURL": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Pok%C3%A9mon_box_art_-_Gold_Version.png/220px-Pok%C3%A9mon_box_art_-_Gold_Version.png"
   }
 ]
