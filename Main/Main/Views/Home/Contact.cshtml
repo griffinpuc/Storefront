@@ -1,0 +1,29 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body style="text-align: center;">
+    <br />
+    <h2>Contact:</h2>
+
+    <div style="text-align: center; margin-left: 30vh; margin-right: 30vh;">
+        <form asp-controller="Home" asp-action="Submitted">
+
+            <input type="text" class="form-control" placeholder="Enter Name (Required)" id="Name" name="Name" required>
+            <br />
+            <input type="text" class="form-control" placeholder="Enter Email (Required)" id="Email" name="Email" required>
+            <br />
+            <input type="text" class="form-control" placeholder="Enter Phone" id="Phone" name="Phone">
+            <br />
+            <input type="text" class="form-control" placeholder="Enter Country" id="Country" name="Country">
+            <br />
+
+            <div class="col-xs-7" style="margin-top: 10px; text-align: center;">
+                <button type="submit" class="btn-primary btn" style="text-align: center;">Submit</button>
+            </div>
+
+        </form>
+    </div>
+   
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Item>
+﻿@model Main.Models.CatItemView
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -39,39 +39,39 @@
                 <th><br /></th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
-                <tr>
+            <tr>
 
-                    <th style="color: cornflowerblue; font-size: 15pt;" name="code">#@item.ID</th>
-                    <th></th>
-                    <th>@item.Name</th>
-                    <th></th>
-                    <th style="color: gray; font-size: 10pt; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">@item.Descr</th>
-                    <th></th>
-                    <th>$@item.WPrice</th>
-                    <th></th>
-                    <th>$@item.Price</th>
-                    <th></th>
-                    <th style="color: cornflowerblue">@item.Quantity Units</th>
-                    <th></th>
-                    <th>@item.Category</th>
+                <th style="color: cornflowerblue; font-size: 15pt;" name="code">#@item.ID</th>
+                <th></th>
+                <th>@item.Name</th>
+                <th></th>
+                <th style="color: gray; font-size: 10pt; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">@item.Descr</th>
+                <th></th>
+                <th>$@item.WPrice</th>
+                <th></th>
+                <th>$@item.Price</th>
+                <th></th>
+                <th style="color: cornflowerblue">@item.Quantity Units</th>
+                <th></th>
+                <th>@item.Category</th>
 
-                    <th>
-                        <form asp-controller="home" asp-action="edit" method="get">
-                            <input type="hidden" asp-for="@item.ID" name="ID" />
-                            <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
-                        </form>
-                    </th>
+                <th>
+                    <form asp-controller="home" asp-action="edit" method="get">
+                        <input type="hidden" asp-for="@item.ID" name="ID" />
+                        <button class="btn btn-info" style="margin: 2px;" type="submit">Edit</button>
+                    </form>
+                </th>
 
-                    <th>
-                        <form asp-controller="home" asp-action="delete">
-                            <input type="hidden" asp-for="@item.ID" name="ID" />
-                            <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
-                        </form>
-                    </th>
+                <th>
+                    <form asp-controller="home" asp-action="delete">
+                        <input type="hidden" asp-for="@item.ID" name="ID" />
+                        <button class="btn btn-danger" style="margin: 2px;" type="submit">Delete</button>
+                    </form>
+                </th>
 
-                </tr>
+            </tr>
 
             }
 
@@ -120,8 +120,44 @@
     </div>
 
     <br />
-    
-    <div class="col-sm-6">
+
+    <div class="jumbotron" style="text-align: center;">
+        <i class="fas fa-address-book" style="font-size: 45pt; text-align: center;"></i>
+        <p style="font-size: 25pt">Site User Data</p>
+        <p style="font-size: 13pt">Users signed up for email list</p>
+        <br />
+
+        <table style="width: 100%; font-size: 12pt; border-spacing: 10vh;">
+            <tr>
+                <th style="font-size: 15pt;">Name</th>
+                <th style="font-size: 15pt;">Email</th>
+                <th style="font-size: 15pt;">Phone</th>
+                <th style="font-size: 15pt;">Country</th>
+            </tr>
+
+            @foreach (var contact in Model.Conts)
+                {
+            <tr style="color: cornflowerblue">
+                <th>
+                    @contact.Name
+                </th>
+                <th>
+                    @contact.Email
+                </th>
+                <th>
+                    @contact.Phone
+                </th>
+                <th>
+                    @contact.Country
+                </th>
+            </tr>
+                }
+
+
+        </table>
+
+
+    </div>
 
         <div class="jumbotron" style="text-align: center;">
             <i class="fas fa-file-upload" style="font-size: 45pt;"></i>
@@ -131,7 +167,7 @@
             <br />
 
             <form asp-controller="home" asp-action="import" enctype="multipart/form-data">
-                <input type="file" name="file" class="btn btn-link" style="margin: 2px; width: 50vh;" />
+                <input type="file" name="file" class="btn btn-link" style="margin: 2px; width: 50vh; margin-left: 45vh;" />
                 <button class="btn btn-primary" style="margin: 2px; width: 50vh;" type="submit">Import File</button>
             </form>
 
@@ -142,31 +178,6 @@
             </form>
 
         </div>
-
-    </div>
-
-    <div class="col-sm-6">
-
-        <div class="jumbotron" style="text-align: center;">
-            <i class="fas fa-cogs" style="font-size: 45pt; text-align: center;"></i>
-            <p style="font-size: 25pt">Site Settings</p>
-            <p style="font-size: 13pt">Change site color and name</p>
-
-
-            <form asp-controller="home" asp-action="siteset">
-                <input type="text" class="form-control" placeholder="Name" id="siteName" name="siteName">
-                <br />
-                <input type="text" class="form-control" placeholder="Description" id="siteDescr" name="siteDescr">
-                <br />
-                <input type="text" class="form-control" placeholder="Hex Color (#FFFFFF)" id="siteClr" name="siteClr">
-                <br />
-                <button class="btn btn-primary" style="margin: 2px;" type="submit">Change</button>
-            </form>
-
-
-            </div>
-
-    </div>
 
 </body>
 

@@ -1,0 +1,15 @@
+﻿@model Contact
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thanks!</title>
+</head>
+<body>
+
+    <h2>Thank you @Model.Name for submitting your message!</h2>
+    <form asp-controller="Home" asp-action="Index">
+        <button type="submit" class="btn-primary btn">Return Home</button>
+    </form>
+
+</body>
+</html>

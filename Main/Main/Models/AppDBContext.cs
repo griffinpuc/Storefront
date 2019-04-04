@@ -24,6 +24,20 @@ namespace Main.Models
 
         public DbSet<LogInfo> DBCreds { get; set; }
 
+        public DbSet<Contact> DBContacts { get; set; }
+
+
+        public List<Contact> GetAllContacts()
+        {
+            return (from contact in DBContacts select contact).ToList();
+        }
+
+        public void AddContact(Contact contact)
+        {
+            Add(contact);
+            SaveChanges();
+        }
+
         
         //Return all items in DBITEMS
         public List<Item> GetAllItems()

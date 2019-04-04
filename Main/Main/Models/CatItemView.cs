@@ -10,6 +10,7 @@ namespace Main.Models
 
         public List<string> Cats { get; set; }
         public List<Item> Items { get; set; }
+        public List<Contact> Conts { get; set; }
 
     }
 }

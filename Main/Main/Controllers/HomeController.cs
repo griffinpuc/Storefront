@@ -31,6 +31,7 @@ namespace Main.Controllers
             
             var Cat = _context.GetAllCats();
             var Item = _context.GetAllItems();
+            var Cont = _context.GetAllContacts();
 
             if (Category == "sortHL")
             {
@@ -79,7 +80,16 @@ namespace Main.Controllers
         [HttpGet]
         public ViewResult Admin(bool access)
         {
-            return View(_context.GetAllItems());
+            var Cont = _context.GetAllContacts();
+            var Items = _context.GetAllItems();
+
+            var MyView = new CatItemView()
+            {
+                Items = Items,
+                Conts = Cont
+            };
+
+            return View(MyView);
         }
 
         [HttpPost]
@@ -159,6 +169,26 @@ namespace Main.Controllers
             _context.ImportJSON(filepath);
 
             return RedirectToAction("Admin", "Home");
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Submitted(Contact contact)
+        {
+            if(contact.Country == null)
+            {
+                contact.Country = "Not Available";
+            }
+            if (contact.Phone == null)
+            {
+                contact.Phone = "Not Available";
+            }
+
+            _context.AddContact(contact);
+            return View(contact);
         }
 
     }
