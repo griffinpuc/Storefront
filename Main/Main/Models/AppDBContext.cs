@@ -74,6 +74,15 @@ namespace Main.Models
             }
         }
 
+        //Remove contact
+        public void RemoveCont(int? id)
+        {
+            Contact contact = DBContacts.FirstOrDefault(it => it.ID == id);
+
+            Remove(contact);
+            SaveChanges();
+        }
+
 
         //Get items from category in DBITEMS
         public List<Item> GetFromCat(string cat)

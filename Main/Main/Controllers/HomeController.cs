@@ -191,5 +191,12 @@ namespace Main.Controllers
             return View(contact);
         }
 
+
+        public IActionResult Deletecont(Contact contact)
+        {
+            _context.RemoveCont(contact.ID);
+            return RedirectToAction("Admin", "Home");
+        }
+
     }
 }
