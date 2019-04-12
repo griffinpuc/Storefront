@@ -147,7 +147,7 @@ namespace Main.Controllers
             string json = _context.ExportJSON();
 
             Stream memstream = new MemoryStream(Encoding.ASCII.GetBytes(json));
-            return File(memstream, "application/json", "test.json");
+            return File(memstream, "application/json", "inventory.json");
         }
 
         [HttpPost]
